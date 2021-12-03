@@ -23,7 +23,7 @@ def q2(it):
         last = total
     return count
 
-# print(q2([199 ,200 ,208 ,210 ,200 ,207 ,240 ,269 ,260 ,263 ]))
+print(q1([199 ,200 ,208 ,210 ,200 ,207 ,240 ,269 ,260 ,263 ]))
 
-with open('input.txt', 'r') as f:
-    print(q2([int(t) for t in f]))
+# with open('input.txt', 'r') as f:
+#     print(q2([int(t) for t in f]))
