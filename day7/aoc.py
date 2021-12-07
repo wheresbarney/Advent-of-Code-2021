@@ -7,7 +7,7 @@ def costSimple(target, positions): # q1
     return sum([abs(pos - target) for pos in positions])
 
 cache = {}
-def costComplex(target, positions): # q2
+def costComplexIterativeCached(target, positions): # q2
     cost = 0
     for pos in positions:
         if (target, pos) in cache:
@@ -18,12 +18,22 @@ def costComplex(target, positions): # q2
         cache[(target, pos)] = thisCost
     return cost
 
+def costComplexFast(target, positions): # q2
+    cost = 0
+    for pos in positions:
+        distance = abs(pos - target)
+        thisCost = int((distance / 2)) * (distance + 1)
+        if distance % 2 == 1:
+            thisCost += int((distance + 1) / 2)
+        cost += thisCost
+    return cost
+
 def q1(positions):
     positions = [int(s) for s in positions[0].split(',')]
     best = positions[0]
     bestCost = costComplex(best, positions)
     for target in range(min(positions) + 1, max(positions) + 1): # binary search might work, and would be much faster
-        thisCost = costComplex(target, positions)
+        thisCost = costComplexFast(target, positions)
         if thisCost < bestCost:
             bestCost = thisCost
             best = target
