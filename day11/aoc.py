@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.8
-# https://adventofcode.com/2021/day/10
+# https://adventofcode.com/2021/day/11
 
 from sys import argv
 
